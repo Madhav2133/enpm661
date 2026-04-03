@@ -7,7 +7,7 @@
             <visual name="visual">
                 <geometry>
                     <mesh>
-                        <uri>model://project3/meshes/project3-world.STL</uri>
+                        <uri>model://project3/meshes/map-project3-phase2.STL</uri>
                         <scale>0.001 0.001 0.001</scale>
                     </mesh>
                 </geometry>
@@ -15,7 +15,7 @@
             <collision name="collision">
                 <geometry>
                     <mesh>
-                        <uri>model://project3/meshes/project3-world.STL</uri>
+                        <uri>model://project3/meshes/map-project3-phase2.STL</uri>
                         <scale>0.001 0.001 0.001</scale>
                     </mesh>
                 </geometry>
