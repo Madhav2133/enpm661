@@ -37,7 +37,7 @@ Ensure these dependencies are installed in your ROS 2 environment.
 2. Run the docker image
     ```bash
     xhost +local:docker  # Allow Docker to access X server
-    docker run -it   --env DISPLAY=$DISPLAY   --volume /tmp/.X11-unix:/tmp/.X11-unix:rw   --privileged   ghcr.io/koustubh1012/enpm661_competition:latest   /bin/bash
+    docker run -it   --env DISPLAY=$DISPLAY   --volume /tmp/.X11-unix:/tmp/.X11-unix:rw   --privileged   ghcr.io/madhav2133/enpm661:latest   /bin/bash
 
 3. Build and run the ROS2 package
     ```bash
@@ -64,6 +64,18 @@ Ensure these dependencies are installed in your ROS 2 environment.
     ```bash
     ros2 launch enpm661_competition turtlebot4_comp.launch.py
 
+## Map Dimensions
+
+All dimensions are in milimeters.
+
+![map](./assets/map.png)
+
+## Simulation
+
+You should see the turtlebot4 along with the maze in gazebo sim
+
+![gazebo](./assets/image.png)
+
 ## Useful Information
 
 ### Teleoperation
@@ -86,3 +98,18 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=true
     ```bash
     docker compose -f docker/enpm661-comp.yml run --rm enpm661-comp-docker
 NOTE: use sudo inside docker just like native.
+
+### Add new Python executable
+
+* Write a new python script and store it in a folder
+* Update the CMakeLists.txt file 
+
+```xml
+# Install python scripts
+
+install(PROGRAMS 
+  scripts/teleop.py
+  # You can add more scripts here
+  DESTINATION lib/${PROJECT_NAME}
+)
+```
